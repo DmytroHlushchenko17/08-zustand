@@ -1,4 +1,15 @@
+import { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Not-found",
+  description: "Not-found",
+  openGraph: {
+    title: "Not-found",
+    description: "Not-found",
+    url: "",
+  },
+};
 
 const NotFound = () => {
   return (
