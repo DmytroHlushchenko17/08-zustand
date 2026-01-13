@@ -17,6 +17,7 @@ import type {
   NoteTag,
 } from "@/types/note";
 import NoteList from "@/components/NoteList/NoteList";
+import Link from "next/link";
 
 const PER_PAGE = 12;
 
@@ -62,23 +63,22 @@ export default function NotesClient({ tag }: Props) {
             onChangePage={setPage}
           />
         )}
-
-        <button className={css.button} onClick={() => setIsModalOpen(true)}>
-          Create note +
-        </button>
+        <Link href="/notes/action/create">
+          <button className={css.button}>Create note +</button>
+        </Link>
       </header>
 
       {isPending && <Loader />}
       {isError && <ErrorMessage />}
       {!isPending && !isError && notes.length > 0 && <NoteList notes={notes} />}
-      {isModalOpen && (
+      {/* {isModalOpen && (
         <Modal onClose={() => setIsModalOpen(false)}>
           <NoteForm
             onCancel={() => setIsModalOpen(false)}
             onSuccess={() => setIsModalOpen(false)}
           />
         </Modal>
-      )}
+      )} */}
       <Toaster
         toastOptions={{
           success: { style: { background: "green", color: "white" } },

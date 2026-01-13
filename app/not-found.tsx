@@ -7,7 +7,15 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Not-found",
     description: "Not-found",
-    url: "",
+    url: "https://notehub.com/notes",
+    images: [
+      {
+        url: "https://ac.goit.global/fullstack/react/og-meta.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Note Hub",
+      },
+    ],
   },
 };
 
