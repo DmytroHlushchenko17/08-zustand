@@ -17,11 +17,11 @@ api.interceptors.request.use((config) => {
   return config;
 });
 
-export interface NoteCreate {
+export type NoteCreate = {
   title: string;
   content: string;
   tag: NoteTag;
-}
+};
 
 export const fetchNotes = async (
   params: FetchNotesParams
