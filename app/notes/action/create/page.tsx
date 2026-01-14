@@ -1,7 +1,6 @@
 import NoteForm from "@/components/NoteForm/NoteForm";
 import css from "./CreateNote.module.css";
 import { Metadata } from "next";
-import { getNotes } from "@/lib/api";
 
 export const metadata: Metadata = {
   title: "Create notes",
@@ -22,12 +21,11 @@ export const metadata: Metadata = {
 };
 
 export default async function CreateNote() {
-  const notes = await getNotes();
   return (
     <main className={css.main}>
       <div className={css.container}>
         <h1 className={css.title}>Create note</h1>
-        <NoteForm notes={notes} />
+        <NoteForm />
       </div>
     </main>
   );
