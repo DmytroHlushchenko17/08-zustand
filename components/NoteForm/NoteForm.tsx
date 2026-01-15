@@ -53,7 +53,7 @@ const NoteForm = () => {
         </label>
         <label htmlFor="content">
           Content
-          <input
+          <textarea
             name="content"
             className={css.textarea}
             defaultValue={draft?.content}
