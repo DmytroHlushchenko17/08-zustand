@@ -5,12 +5,9 @@ import css from "./Notes.client.module.css";
 import SearchBox from "@/components/SearchBox/SearchBox";
 import Pagination from "@/components/Pagination/Pagination";
 import { useDebounce } from "use-debounce";
-import Modal from "@/components/Modal/Modal";
-import NoteForm from "@/components/NoteForm/NoteForm";
 import Loader from "@/components/Loader/Loader";
 import ErrorMessage from "@/components/ErrorMessage/ErrorMessage";
 import { fetchNotes } from "@/lib/api";
-import { Toaster } from "react-hot-toast";
 import type {
   FetchNotesParams,
   FetchNotesResponse,
@@ -26,7 +23,6 @@ type Props = {
 };
 
 export default function NotesClient({ tag }: Props) {
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [search, setSearch] = useState("");
   const [debouncedSearchQuery] = useDebounce(search, 500);
   const [page, setPage] = useState(1);
@@ -71,20 +67,6 @@ export default function NotesClient({ tag }: Props) {
       {isPending && <Loader />}
       {isError && <ErrorMessage />}
       {!isPending && !isError && notes.length > 0 && <NoteList notes={notes} />}
-      {/* {isModalOpen && (
-        <Modal onClose={() => setIsModalOpen(false)}>
-          <NoteForm
-            onCancel={() => setIsModalOpen(false)}
-            onSuccess={() => setIsModalOpen(false)}
-          />
-        </Modal>
-      )} */}
-      <Toaster
-        toastOptions={{
-          success: { style: { background: "green", color: "white" } },
-          error: { style: { background: "red", color: "white" } },
-        }}
-      />
     </div>
   );
 }

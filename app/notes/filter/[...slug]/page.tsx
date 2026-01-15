@@ -16,14 +16,13 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const tag = slug?.[0] === "all" ? undefined : (slug?.[0] as NoteTag);
-  const note = await getNotes(tag);
   return {
-    title: `Note: ${note}`,
+    title: `Note: ${tag}`,
     description: `Note for filter on tag`,
     openGraph: {
-      title: "Note for filter on tag",
-      description: "Note for filter on tag",
-      url: "https://notehub.com/notes",
+      title: "Note for filter",
+      description: "Note for filter",
+      url: `https://08-zustand-livid-sigma.vercel.app/notes/filter/${tag}`,
       images: [
         {
           url: "https://ac.goit.global/fullstack/react/og-meta.jpg",
