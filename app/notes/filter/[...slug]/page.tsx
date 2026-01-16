@@ -22,8 +22,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: `Note for filter on ${tag ?? "all"}`,
       description: `Note for filter on ${tag ?? "all"}`,
-      url: `https://08-zustand-livid-sigma.vercel.app/notes/
-      filter/${tag ?? "all"}`,
+      url: `https://08-zustand-livid-sigma.vercel.app/notes/filter/${
+        tag ?? "all"
+      }`,
       images: [
         {
           url: "https://ac.goit.global/fullstack/react/og-meta.jpg",
